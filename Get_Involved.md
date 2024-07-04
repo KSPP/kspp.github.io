@@ -1,8 +1,7 @@
 Get Involved
 ============
 
-Want to get involved in the [Kernel Self Protection
-Project](Kernel_Self_Protection_Project)? Here's how:
+Want to get involved in the [Kernel Self Protection Project](/)? Here's how:
 
 # Join the conversations
 

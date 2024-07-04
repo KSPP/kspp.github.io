@@ -1,8 +1,8 @@
-Recommended Settings
-====================
+---
+title: Recommended Settings
+---
 
-Sometimes people ask the [Kernel Self Protection
-Project](Kernel_Self_Protection_Project) what a secure set of
+Sometimes people ask the [Kernel Self Protection Project](/) what a secure set of
 build CONFIGs and runtime settings are. This is a brain-dump of the
 various options for a particularly paranoid system.
 

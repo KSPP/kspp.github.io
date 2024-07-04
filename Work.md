@@ -3,8 +3,7 @@ Areas of Work Needed
 
 # Work Areas
 
-The [Kernel Self Protection
-Project](Kernel_Self_Protection_Project) has a lot of work to
+The [Kernel Self Protection Project](/) has a lot of work to
 do\! While there are already a number of upstream [kernel security
 features](Feature_List), we are still missing many.
 
