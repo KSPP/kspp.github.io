@@ -1,5 +1,6 @@
 title: Kernel Self-Protection Project
 email: linux-hardening@vger.kernel.org
+theme: minimal
 baseurl: ""
 url: ""
 lsi: false
