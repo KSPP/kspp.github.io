@@ -1,3 +1,8 @@
+| Contents |
+| * TOC
+{:toc}
+|
+
 # Mission Statement
 
 This project starts with the premise that [kernel bugs have a very long
