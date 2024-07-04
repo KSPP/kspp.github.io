@@ -9,7 +9,7 @@ incremental: false
 highlighter: rouge
 gist:
   noscript: false
-markdown: GFM
+markdown: kramdown
 kramdown:
   math_engine: mathjax
   syntax_highlighter: rouge
