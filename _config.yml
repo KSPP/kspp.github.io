@@ -18,3 +18,4 @@ kramdown:
 plugins:
   - jekyll-feed
   - jekyll-redirect-from
+repository: KSPP/kspp.github.io
