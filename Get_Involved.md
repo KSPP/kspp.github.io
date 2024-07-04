@@ -1,5 +1,9 @@
-Get Involved
-============
+---
+title: Get Involved
+---
+
+* TOC
+{:toc}
 
 Want to get involved in the [Kernel Self Protection Project](/)? Here's how:
 

@@ -1,11 +1,12 @@
-title: Kernel Self-Protection Project
+title: Linux Kernel Self-Protection Project
 email: linux-hardening@vger.kernel.org
-theme: minimal
+theme: minima
+header_pages:
+  - does-not-exist.md
 baseurl: ""
 url: ""
 lsi: false
 safe: true
-source: /
 incremental: false
 highlighter: rouge
 gist:

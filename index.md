@@ -1,5 +1,6 @@
 ---
 title: Kernel Self Protection Project
+layout: home
 redirect_from:
   - /KSPP/
   - /Kernel_Self_Protection/
