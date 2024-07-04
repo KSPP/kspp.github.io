@@ -2,7 +2,7 @@ Recommended Settings
 ====================
 
 Sometimes people ask the [Kernel Self Protection
-Project](Kernel_Self_Protection_Project "wikilink") what a secure set of
+Project](Kernel_Self_Protection_Project) what a secure set of
 build CONFIGs and runtime settings are. This is a brain-dump of the
 various options for a particularly paranoid system.
 

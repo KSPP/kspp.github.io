@@ -6,4 +6,4 @@ on classes of bugs that have security implications, explain them, link
 to examples, and link to defenses that are or could be used to entirely
 eliminate the bug class.
 
-[Kernel Self Protection Project](/ "wikilink")
+[Kernel Self Protection Project](/)

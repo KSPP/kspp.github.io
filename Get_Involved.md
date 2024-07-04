@@ -2,7 +2,7 @@ Get Involved
 ============
 
 Want to get involved in the [Kernel Self Protection
-Project](Kernel_Self_Protection_Project "wikilink")? Here's how:
+Project](Kernel_Self_Protection_Project)? Here's how:
 
 # Join the conversations
 

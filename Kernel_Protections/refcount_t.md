@@ -2,7 +2,7 @@
 
 The refcount_t API is a kernel self-protection mechanism that greatly
 helps with the prevention of
-[use-after-free](Bug_Classes/Use_after_free "wikilink") bugs. It is
+[use-after-free](Bug_Classes/Use_after_free) bugs. It is
 based off of work done by the [PaX Team](https://pax.grsecurity.net),
 originally called
 [PAX_REFCOUNT](https://forums.grsecurity.net/viewtopic.php?f=7&t=4173).

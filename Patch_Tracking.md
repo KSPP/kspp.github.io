@@ -4,7 +4,7 @@ Patch Tracking
 # Overview
 
 The primary place where
-[KSPP](Kernel_Self_Protection_Project "wikilink") patches are tracked is
+[KSPP](Kernel_Self_Protection_Project) patches are tracked is
 through our [patchwork
 instance](https://patchwork.kernel.org/project/linux-hardening/list/).
 This helps collect Reviewed-by, Acked-by, Tested-by, etc, tags in a

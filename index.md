@@ -60,10 +60,10 @@ features:
 
 Specific details on the project:
 
-  - [Get Involved](Get_Involved "wikilink")
-  - [Areas of Work Needed](Work "wikilink")
-  - [Recommended Kernel Settings](Recommended_Settings "wikilink")
-  - [Patch Tracking](Patch_Tracking "wikilink")
+  - [Get Involved](Get_Involved)
+  - [Areas of Work Needed](Work)
+  - [Recommended Kernel Settings](Recommended_Settings)
+  - [Patch Tracking](Patch_Tracking)
 
 # Documentation
 
@@ -72,7 +72,7 @@ that have specific documentation:
 
   - [Self-Protection
     Guidelines](https://www.kernel.org/doc/html/latest/security/self-protection.html)
-  - [refcount_t](Kernel_Protections/refcount_t "wikilink") Kernel
+  - [refcount_t](Kernel_Protections/refcount_t) Kernel
     reference counter overflow protection
   - [Analysis on Kernel Self-Protection: Understanding Security and
     Performance Implication](https://samsung.github.io/kspp-study/)
