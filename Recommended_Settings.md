@@ -10,6 +10,9 @@ Another place to find recommended kernel hardening settings is via the
 "[kernel-hardening-checker](https://github.com/a13xp0p0v/kernel-hardening-checker/)"
 tool maintained by Alexander Popov.
 
+* TOC
+{:toc}
+
 # CONFIGs
 
 ```
