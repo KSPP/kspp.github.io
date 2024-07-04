@@ -1,7 +1,5 @@
-| Contents |
-| * TOC
+* TOC
 {:toc}
-|
 
 # Mission Statement
 
