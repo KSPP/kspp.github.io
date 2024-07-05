@@ -1,7 +1,6 @@
-Areas of Work Needed
-====================
-
-# Work Areas
+---
+title: Areas of Work Needed
+---
 
 We have a lot of work to do! While there are already many upstream
 security features, we are still missing many more.
