@@ -9,7 +9,7 @@ Want to get involved in the [Kernel Self Protection Project](/)? Here's how:
 
 # Join the conversations
 
-  - Subscribe to the [**upstream** Linux kernel hardening mailing list](https://vger.kernel.org/vger-lists.html#linux-hardening),
+  - Subscribe to the [**upstream** Linux kernel hardening mailing list](https://subspace.kernel.org/vger.kernel.org.html#:~:text=Hardening),
     `linux-hardening@vger.kernel.org`, where development,
     maintenance, and administrivia happen. (And visit the [list archive](https://lore.kernel.org/linux-hardening/).)
   - Come to the every-2-weeks status update meeting. See the
@@ -35,12 +35,14 @@ Send an email to the lists to introduce yourself!
 
 # Pick something to work on
 
-Pick something from the [issue tracker](https://github.com/KSPP/linux/issues) (or add a new one),
-coordinate on the mailing lists, and get started. If your employer is
-brave enough to understand how critical this work is, they'll pay you to
-work on it. If not, the [OpenSSF](https://openssf.org/)'s [Alpha-Omega](https://alpha-omega.dev/) group is in a great
-position to fund specific work proposals. We need kernel developers,
-compiler developers, testers, backporters, a documentation writers.
+Pick something from the [issue tracker](https://github.com/KSPP/linux/issues)
+(or add a new one), coordinate on the mailing lists, and get
+started. If your employer is brave enough to understand how
+critical this work is, they'll pay you to work on it. If not, the
+[OpenSSF](https://openssf.org/)'s [Alpha-Omega](https://alpha-omega.dev/)
+group is in a great position to fund specific work proposals. We
+need kernel developers, compiler developers, testers, backporters,
+a documentation writers.
 
 # Contribute patches
 
@@ -50,6 +52,7 @@ Please send new topics and patch series to
 When contributing patches for the Linux kernel, be sure to follow the
 Linux kernel [Coding Style Guide](https://www.kernel.org/doc/html/latest/process/coding-style.html)
 and read about [Submitting Patches](https://www.kernel.org/doc/html/latest/process/submitting-patches.html).
+
 Even if you're only sending your patches to the mailing lists for some
 early review, it's best to get as much of the coding style and
 submission semantics correct to avoid reviewers needing to recommend
