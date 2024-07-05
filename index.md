@@ -1,13 +1,10 @@
 ---
 title: Kernel Self Protection Project
-layout: home
+layout: default
 redirect_from:
   - /KSPP/
   - /Kernel_Self_Protection/
 ---
-
-* TOC
-{:toc}
 
 # Mission Statement
 
