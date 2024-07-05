@@ -9,7 +9,7 @@ Want to get involved in the [Kernel Self Protection Project](/)? Here's how:
 
 # Join the conversations
 
-  - Subscribe to the [**upstream** Linux kernel hardening mailing list](http://vger.kernel.org/vger-lists.html#linux-hardening),
+  - Subscribe to the [**upstream** Linux kernel hardening mailing list](https://vger.kernel.org/vger-lists.html#linux-hardening),
     `linux-hardening@vger.kernel.org`, where development,
     maintenance, and administrivia happen. (And visit the [list archive](https://lore.kernel.org/linux-hardening/).)
   - Come to the every-2-weeks status update meeting. See the
@@ -45,7 +45,7 @@ compiler developers, testers, backporters, a documentation writers.
 # Contribute patches
 
 Please send new topics and patch series to
-[linux-hardening@vger.kernel.org](http://vger.kernel.org/vger-lists.html#linux-hardening).
+[linux-hardening@vger.kernel.org](https://subspace.kernel.org/vger.kernel.org.html#linux-hardening).
 
 When contributing patches for the Linux kernel, be sure to follow the
 Linux kernel [Coding Style Guide](https://www.kernel.org/doc/html/latest/process/coding-style.html)

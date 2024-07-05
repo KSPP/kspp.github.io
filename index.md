@@ -11,24 +11,27 @@ redirect_from:
 
 # Mission Statement
 
-This project starts with the premise that
-[kernel bugs have a very long lifetime](https://lwn.net/Articles/410606/), and that the kernel must be
-designed in ways to protect against these flaws. We must think of
-[security beyond fixing bugs](http://lwn.net/Articles/662219/). As a
-community, we already find and fix individual bugs via static checkers
-(compiler flags, [smatch](http://smatch.sourceforge.net/),
-[coccinelle](http://coccinelle.lip6.fr/),
-[coverity](https://scan.coverity.com/projects/linux-next-weekly-scan?tab=overview)) and
-dynamic checkers (kernel configs,
-[trinity](http://codemonkey.org.uk/projects/trinity/),
-[KASan](https://www.kernel.org/doc/Documentation/kasan.txt)). Those
-efforts are important and on-going, but if we want to protect our
-[billion Android phones](http://www.techspot.com/news/57228-google-shows-off-new-version-of-android-announces-1-billion-active-monthly-users.html),
-our [cars](http://www.zdnet.com/article/2014-the-year-of-the-linux-car/),
+Founded in 2015, this upstream [Linux kernel](https://kernel.org/)
+project starts with the premise that
+[kernel bugs have a very long lifetime](https://lwn.net/Articles/410606/),
+and that the kernel must be designed in ways to protect against these flaws. We must think of
+[security beyond fixing bugs](https://lwn.net/Articles/662219/).
+As a community, we already find and fix individual bugs via static checkers (compiler flags,
+[smatch](https://smatch.sourceforge.net/),
+[coccinelle](https://coccinelle.lip6.fr/),
+[coverity](https://scan.coverity.com/projects/linux-next-weekly-scan?tab=overview),
+[CodeQL](https://docs.github.com/en/code-security/codeql-cli/codeql-cli-manual))
+and dynamic checkers (kernel configs,
+[syzkaller](https://syzkaller.appspot.com/upstream),
+[KASan](https://www.kernel.org/doc/Documentation/kasan.txt),
+[trinity](https://codemonkey.org.uk/projects/trinity/)).
+Those efforts are important and on-going, but if we want to protect our
+[billion Android phones](https://www.techspot.com/news/57228-google-shows-off-new-version-of-android-announces-1-billion-active-monthly-users.html),
+our [cars](https://www.zdnet.com/article/2014-the-year-of-the-linux-car/),
 the [International Space Station](https://training.linuxfoundation.org/why-our-linux-training/training-reviews/linux-foundation-training-prepares-the-international-space-station-for-linux-migration),
 and everything else running Linux, we must get proactive defensive
 technologies built into the upstream Linux kernel. We need the kernel to
-[fail safely, instead of just running safely](http://kernsec.org/files/lss2015/giant-bags-of-mostly-water.pdf).
+[fail safely, instead of just running safely](/presentations/giant-bags-of-mostly-water.pdf).
 
 These kinds of protections have existed for years in out-of-tree
 projects and in piles of academic papers. For various social,
