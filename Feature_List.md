@@ -1,9 +1,40 @@
-Feature List
-============
+---
+title: Feature List
+---
 
 This is a list of various interesting security features since v3.4 and
 when they were introduced in the upstream kernel. Feel free to add
-anything more\!
+anything more!
+
+<table>
+ <thead>
+  <tr>
+   <th>Version</th>
+   <th>Feature</th>
+  </tr>
+ </thead>
+ <tbody>
+  <tr>
+   <td>v3.5</td>
+   <td>seccomp-bpf, x86</td>
+  </tr>
+  <tr>
+   <td>v3.7</td>
+   <td>PXN, arm64</td>
+  </tr>
+  <tr>
+   <td rowspan=3>v3.8</td>
+   <td>seccomp-bpf, arm</td>
+  </tr>
+  <tr>
+   <td>seccomp reported in /proc/$pid/status</td>
+  </tr>
+  <tr>
+   <td>finit_module syscall and LSM hook</td>
+  </tr>
+ </tbody>
+</table>
+
 
 | Version                                | Feature                                      |
 | -------------------------------------- | -------------------------------------------- |
