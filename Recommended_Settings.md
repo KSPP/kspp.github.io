@@ -201,9 +201,6 @@ CONFIG_STATIC_USERMODEHELPER=y
 # Dangerous; exposes kernel text image layout.
 # CONFIG_PROC_KCORE is not set
 
-# Dangerous; enabling this disables VDSO ASLR.
-# CONFIG_COMPAT_VDSO is not set
-
 # Dangerous; enabling this allows replacement of running kernel.
 # CONFIG_KEXEC is not set
 
@@ -319,6 +316,10 @@ CONFIG_MITIGATION_SLS=y
 # Enable Control Flow Integrity (since v6.1).
 CONFIG_CFI_CLANG=y
 # CONFIG_CFI_PERMISSIVE is not set
+
+# Dangerous; enabling this disables vDSO ASLR on X86_64 and X86_32.
+# On ARM64 this option has different meaning.
+# CONFIG_COMPAT_VDSO is not set
 ```
 
 ## arm64
@@ -390,6 +391,10 @@ CONFIG_INTEL_IOMMU_DEFAULT_ON=y
 
 # Don't allow for 16-bit program emulation and associated LDT tricks.
 # CONFIG_MODIFY_LDT_SYSCALL is not set
+
+# Dangerous; enabling this disables vDSO ASLR on X86_64 and X86_32.
+# On ARM64 this option has different meaning.
+# CONFIG_COMPAT_VDSO is not set
 ```
 
 ## arm
