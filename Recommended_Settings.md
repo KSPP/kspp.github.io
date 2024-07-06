@@ -452,6 +452,9 @@ iommu.passthrough=0 iommu.strict=1
 
 # Mitigates all known CPU vulnerabilities, disabling SMT *if needed*.
 mitigations=auto,nosmt
+
+# Another way to enable KFENCE (see CONFIG_KFENCE_SAMPLE_INTERVAL).
+kfence.sample_interval=100
 ```
 
 ## x86_64
