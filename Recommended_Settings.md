@@ -104,9 +104,8 @@ CONFIG_PAGE_TABLE_CHECK_ENFORCED=y
 CONFIG_SLUB_DEBUG=y
 
 # Wipe higher-level memory allocations when they are freed (needs "page_poison=1" command line below).
-# (If you can afford even more performance penalty, leave CONFIG_PAGE_POISONING_NO_SANITY=n)
-CONFIG_PAGE_POISONING=y
-CONFIG_PAGE_POISONING_NO_SANITY=y
+# This kernel feature was removed in v5.11.
+# Starting from v5.11 CONFIG_PAGE_POISONING unconditionally checks the 0xAA poison pattern on allocation.
 CONFIG_PAGE_POISONING_ZERO=y
 
 # Wipe slab and page allocations (since v5.3)
@@ -445,7 +444,7 @@ slub_debug=ZF
 # (Before v5.3 without "init_on_free=1") Enable slub/slab allocator free poisoning (requires CONFIG_SLUB_DEBUG=y above).
 slub_debug=P
 
-# (Before v5.3 without "init_on_free=1") Enable buddy allocator free poisoning (requires CONFIG_PAGE_POISONING=y above).
+# (Before v5.3 without "init_on_free=1") Enable buddy allocator free poisoning (see also CONFIG_PAGE_POISONING_ZERO above).
 page_poison=1
 
 # Force IOMMU TLB invalidation so devices will never be able to access stale data contents (see CONFIG_IOMMU_DEFAULT_DMA_STRICT=y above).
