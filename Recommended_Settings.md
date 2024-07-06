@@ -383,7 +383,7 @@ CONFIG_DEFAULT_MMAP_MIN_ADDR=65536
 CONFIG_RANDOMIZE_BASE=y
 
 # Enable Kernel Page Table Isolation to remove an entire class of cache timing side-channels.
-CONFIG_PAGE_TABLE_ISOLATION=y
+CONFIG_MITIGATION_PAGE_TABLE_ISOLATION=y
 
 # Enable chip-specific IOMMU support. 
 CONFIG_INTEL_IOMMU=y
