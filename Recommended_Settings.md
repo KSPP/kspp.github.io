@@ -104,9 +104,8 @@ CONFIG_PAGE_TABLE_CHECK_ENFORCED=y
 CONFIG_SLUB_DEBUG=y
 
 # Wipe higher-level memory allocations when they are freed (needs "page_poison=1" command line below).
-# (If you can afford even more performance penalty, leave CONFIG_PAGE_POISONING_NO_SANITY=n)
-CONFIG_PAGE_POISONING=y
-CONFIG_PAGE_POISONING_NO_SANITY=y
+# This kernel feature was removed in v5.11.
+# Starting from v5.11 CONFIG_PAGE_POISONING unconditionally checks the 0xAA poison pattern on allocation.
 CONFIG_PAGE_POISONING_ZERO=y
 
 # Wipe slab and page allocations (since v5.3)
@@ -201,9 +200,6 @@ CONFIG_STATIC_USERMODEHELPER=y
 
 # Dangerous; exposes kernel text image layout.
 # CONFIG_PROC_KCORE is not set
-
-# Dangerous; enabling this disables VDSO ASLR.
-# CONFIG_COMPAT_VDSO is not set
 
 # Dangerous; enabling this allows replacement of running kernel.
 # CONFIG_KEXEC is not set
@@ -320,6 +316,10 @@ CONFIG_MITIGATION_SLS=y
 # Enable Control Flow Integrity (since v6.1).
 CONFIG_CFI_CLANG=y
 # CONFIG_CFI_PERMISSIVE is not set
+
+# Dangerous; enabling this disables vDSO ASLR on X86_64 and X86_32.
+# On ARM64 this option has different meaning.
+# CONFIG_COMPAT_VDSO is not set
 ```
 
 ## arm64
@@ -383,7 +383,7 @@ CONFIG_DEFAULT_MMAP_MIN_ADDR=65536
 CONFIG_RANDOMIZE_BASE=y
 
 # Enable Kernel Page Table Isolation to remove an entire class of cache timing side-channels.
-CONFIG_PAGE_TABLE_ISOLATION=y
+CONFIG_MITIGATION_PAGE_TABLE_ISOLATION=y
 
 # Enable chip-specific IOMMU support. 
 CONFIG_INTEL_IOMMU=y
@@ -391,6 +391,10 @@ CONFIG_INTEL_IOMMU_DEFAULT_ON=y
 
 # Don't allow for 16-bit program emulation and associated LDT tricks.
 # CONFIG_MODIFY_LDT_SYSCALL is not set
+
+# Dangerous; enabling this disables vDSO ASLR on X86_64 and X86_32.
+# On ARM64 this option has different meaning.
+# CONFIG_COMPAT_VDSO is not set
 ```
 
 ## arm
@@ -445,7 +449,7 @@ slub_debug=ZF
 # (Before v5.3 without "init_on_free=1") Enable slub/slab allocator free poisoning (requires CONFIG_SLUB_DEBUG=y above).
 slub_debug=P
 
-# (Before v5.3 without "init_on_free=1") Enable buddy allocator free poisoning (requires CONFIG_PAGE_POISONING=y above).
+# (Before v5.3 without "init_on_free=1") Enable buddy allocator free poisoning (see also CONFIG_PAGE_POISONING_ZERO above).
 page_poison=1
 
 # Force IOMMU TLB invalidation so devices will never be able to access stale data contents (see CONFIG_IOMMU_DEFAULT_DMA_STRICT=y above).
@@ -453,6 +457,9 @@ iommu.passthrough=0 iommu.strict=1
 
 # Mitigates all known CPU vulnerabilities, disabling SMT *if needed*.
 mitigations=auto,nosmt
+
+# Another way to enable KFENCE (see CONFIG_KFENCE_SAMPLE_INTERVAL).
+kfence.sample_interval=100
 ```
 
 ## x86_64
