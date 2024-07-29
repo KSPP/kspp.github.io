@@ -182,11 +182,11 @@ CONFIG_ZERO_CALL_USED_REGS=y
 
 # Wipe RAM at reboot via EFI.
 # For more details, see:
-`# `<https://trustedcomputinggroup.org/resource/pc-client-work-group-platform-reset-attack-mitigation-specification/>
-`# `<https://bugzilla.redhat.com/show_bug.cgi?id=1532058>
+# https://trustedcomputinggroup.org/resource/pc-client-work-group-platform-reset-attack-mitigation-specification/
+# https://bugzilla.redhat.com/show_bug.cgi?id=1532058
 CONFIG_RESET_ATTACK_MITIGATION=y
 
-`# This needs userspace support, and will break "regular" distros. See: `<https://github.com/tych0/huldufolk>
+# This needs userspace support, and will break "regular" distros. See: https://github.com/tych0/huldufolk
 CONFIG_STATIC_USERMODEHELPER=y
 
 # Dangerous; enabling this allows direct physical memory writing.
@@ -226,9 +226,8 @@ CONFIG_STATIC_USERMODEHELPER=y
 CONFIG_PANIC_ON_OOPS=y
 CONFIG_PANIC_TIMEOUT=-1
 
-# Limit sysrq to sync,unmount,reboot. For more details see the `[`sysrq`
- ``bit``   ``field``
- ``table`](https://docs.kernel.org/admin-guide/sysrq.html)`.`
+# Limit sysrq to sync,unmount,reboot. For more details see the sysrq bit field table:
+# https://docs.kernel.org/admin-guide/sysrq.html
 CONFIG_MAGIC_SYSRQ_DEFAULT_ENABLE=176
 
 # Keep root from altering kernel memory via loadable modules.
@@ -440,10 +439,10 @@ slab_nomerge
 # Always enable Kernel Page Table Isolation, even if the CPU claims it is safe from Meltdown.
 pti=on
 
-# To prevent against L1TF, at the cost of losing hyper threading (`**`slow`**`).
+# To prevent against L1TF, at the cost of losing hyper threading (slow).
 nosmt
 
-# Enable SLUB redzoning and sanity checking (`**`slow`**`; requires CONFIG_SLUB_DEBUG=y above).
+# Enable SLUB redzoning and sanity checking (slow; requires CONFIG_SLUB_DEBUG=y above).
 slub_debug=ZF
 
 # (Before v5.3 without "init_on_free=1") Enable slub/slab allocator free poisoning (requires CONFIG_SLUB_DEBUG=y above).
@@ -479,19 +478,21 @@ cfi=kcfi
 # sysctls
 
 ```
-# Try to keep kernel address exposures out of various /proc files (kallsyms, modules, etc). (There is `[`no`
- ``CONFIG`](https://lore.kernel.org/lkml/20101217164431.08f3e730.akpm@linux-foundation.org/)` for the changing the initial value.) If root absolutely needs values from /proc, use value "1".`
+# Try to keep kernel address exposures out of various /proc files (kallsyms, modules, etc).
+# There is no CONFIG for the changing the initial value:
+# https://lore.kernel.org/lkml/20101217164431.08f3e730.akpm@linux-foundation.org/
+# If root absolutely needs values from /proc, use value "1".
 kernel.kptr_restrict = 2
 
 # Avoid kernel memory address exposures via dmesg (this value can also be set by CONFIG_SECURITY_DMESG_RESTRICT).
 kernel.dmesg_restrict = 1
 
-# Disable module loading. For example, this can be set after the system has `[`finished`
- ``booting`](https://outflux.net/blog/archives/2009/07/31/blocking-module-loading/)` and initializing hardware.`
+# Disable module loading. For example, this can be set after the system has finished booting and initializing hardware:
+# https://outflux.net/blog/archives/2009/07/31/blocking-module-loading/
 kernel.modules_disabled = 1
 
-# Block non-uid-0 profiling (needs `[`distro`
- ``patch`](https://patchwork.kernel.org/patch/9249919/)`, otherwise this is the same as "= 2")`
+# Block non-uid-0 profiling (needs distro patch https://patchwork.kernel.org/patch/9249919/).
+# Otherwise this is the same as "= 2".
 kernel.perf_event_paranoid = 3
 
 # Turn off kexec, even if it's built in.
