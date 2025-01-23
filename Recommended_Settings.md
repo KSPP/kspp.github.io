@@ -325,8 +325,8 @@ CONFIG_CFI_CLANG=y
 ## arm64
 
 ```
-# Disallow allocating the first 32k of memory (cannot be 64k due to ARM loader).
-CONFIG_DEFAULT_MMAP_MIN_ADDR=32768
+# Disallow allocating the first 64k of memory.
+CONFIG_DEFAULT_MMAP_MIN_ADDR=65536
 
 # Randomize position of kernel (requires UEFI RNG or bootloader support for /chosen/kaslr-seed DT property).
 CONFIG_RANDOMIZE_BASE=y
