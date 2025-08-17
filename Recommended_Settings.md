@@ -415,7 +415,6 @@ CONFIG_CPU_SW_DOMAIN_PAN=y
 # Dangerous; old interfaces and needless additional attack surface.
 # CONFIG_OABI_COMPAT is not set
 ```
-
 # kernel command line options
 
 ```
@@ -441,7 +440,7 @@ slab_nomerge
 pti=on
 
 # To prevent against L1TF, at the cost of losing hyper threading (slow).
-nosmt
+nosmt nosmt=force
 
 # Enable SLUB redzoning and sanity checking (slow; requires CONFIG_SLUB_DEBUG=y above).
 slub_debug=ZF
@@ -460,6 +459,36 @@ mitigations=auto,nosmt
 
 # Another way to enable KFENCE (see CONFIG_KFENCE_SAMPLE_INTERVAL).
 kfence.sample_interval=100
+
+# Enforce kernel lockdown to restrict root's access to kernel memory.
+lockdown=confidentiality
+
+# Enable Spectre v2 mitigations to protect against speculative execution attacks.
+spectre_v2=on
+
+# Enable Spectre BHI mitigations to protect against Branch History Injection attacks.
+spectre_bhi=on
+
+# Disable Speculative Store Bypass to mitigate speculative execution vulnerabilities.
+spec_store_bypass_disable=on
+
+# Enable KVM huge page NX bit enforcement for stronger memory protections.
+kvm.nx_huge_pages=force
+
+# Disable debug filesystem to reduce kernel attack surface.
+debugfs=off
+
+# Set kernel log level to 0 to prevent information leaks via console output.
+loglevel=0
+
+# Disable trust in CPU-provided random numbers to ensure stronger entropy sources.
+random.trust_cpu=off
+
+# Disable trust in bootloader-provided random numbers to ensure stronger entropy sources.
+random.trust_bootloader=off
+
+# Disable early PCI DMA in EFI to prevent unauthorized DMA access before IOMMU setup.
+efi=disable_early_pci_dma
 ```
 
 ## x86_64
@@ -474,8 +503,25 @@ vdso32=0
 
 # Disable FineIBT since it is weaker than pure KCFI.
 cfi=kcfi
-```
 
+# Disable 32-bit emulation to reduce syscall attack surface.
+ia32_emulation=0
+
+# Disable Transactional Synchronization Extensions to mitigate associated vulnerabilities (x86_64-specific).
+tsx=off
+
+# Enable L1 Data Cache flushing to mitigate L1 Terminal Fault (L1TF) vulnerabilities (x86_64-specific).
+l1d_flush=on
+
+# Mitigate speculative return stack overflow with safe return handling (x86_64-specific).
+spec_rstack_overflow=safe-ret
+
+# Force Gather Data Sampling (GDS) mitigations to protect against data sampling attacks (x86_64-specific).
+gather_data_sampling=force
+
+# Enable Register File Data Sampling (RFDS) mitigations to protect against data sampling attacks (x86_64-specific).
+reg_file_data_sampling=on
+```
 # sysctls
 
 ```
@@ -538,4 +584,126 @@ fs.protected_regular = 2
 
 # Make sure the default process dumpability is set (processes that changed privileges aren't dumpable).
 fs.suid_dumpable = 0
+
+# Disable io_uring to prevent potential exploitation of its complex functionality.
+kernel.io_uring_disabled = 2
+
+# Improve ALSR effectiveness for mmap.
+vm.mmap_rnd_bits = 32
+vm.mmap_rnd_compat_bits = 16
+
+# Disable core dumps
+kernel.core_pattern = |/bin/false
+
+# Configures the kernel to prefer keeping memory in RAM over swapping to disk. Reduces the attack surface minimizing disk I/O, which could be exploited to leak sensitive data.
+vm.swappiness=1
+
+# Enable TCP SYN cookies to mitigate SYN flood attacks by avoiding resource exhaustion.
+net.ipv4.tcp_syncookies=1
+
+# Enable TCP time-wait assassination protections as per RFC 1337 to reduce risks from stale connections.
+net.ipv4.tcp_rfc1337=1
+
+# Ignore ICMP broadcast echo requests to prevent amplification attacks.
+net.ipv4.icmp_echo_ignore_broadcasts = 1
+
+# Ignore bogus ICMP error responses to prevent potential exploitation via crafted packets.
+net.ipv4.icmp_ignore_bogus_error_responses = 1
+
+# Ignore all ICMP echo requests on IPv4 to reduce exposure to network probing.
+net.ipv4.icmp_echo_ignore_all=1
+
+# Ignore all ICMP echo requests on IPv6 to reduce exposure to network probing.
+net.ipv6.icmp.echo_ignore_all=1
+
+# Disable TCP timestamps to prevent information leaks that could aid in network reconnaissance.
+net.ipv4.tcp_timestamps=0
+
+# Enable IP spoofing protection, turn on source route verification
+net.ipv4.conf.all.rp_filter = 1
+net.ipv4.conf.default.rp_filter = 1
+
+# Disable ICMP Redirect Acceptance
+net.ipv4.conf.*.send_redirects = 0
+net.ipv4.conf.*.accept_redirects = 0
+net.ipv6.conf.*.accept_redirects = 0
+
+# Disable source routing for IPv4 and IPv6 to prevent packet routing attacks.
+net.ipv4.conf.*.accept_source_route = 0
+net.ipv6.conf.*.accept_source_route = 0
+
+# Disable TCP Selective Acknowledgment to reduce attack surface in TCP stack.
+net.ipv4.tcp_sack=0
+
+# Disable TCP Duplicate Selective Acknowledgment to further reduce TCP stack attack surface.
+net.ipv4.tcp_dsack=0
+
+# Enable ipv6 privacy extension
+net.ipv6.conf.all.use_tempaddr=2
+net.ipv6.conf.default.use_tempaddr=2
+
+# Enable Log Spoofed Packets, Source Routed Packets, Redirect Packets
+net.ipv4.conf.all.log_martians = 1
+net.ipv4.conf.default.log_martians = 1
+
+# Avoid kernel memory address exposures via dmesg (this value can also be set by CONFIG_SECURITY_DMESG_RESTRICT).
+kernel.dmesg_restrict = 1
+
+# Disable the binary format miscellaneous interface to prevent loading of untrusted binary formats.
+fs.binfmt_misc.status = 0
+
+# Disable POSIX corner cases with creating regular files unless the directory owner matches. Check your workloads!
+fs.protected_regular = 2
+
+# Disable POSIX corner cases with creating fifos unless the directory owner matches. Check your workloads!
+fs.protected_fifos = 2
+
+# Prevent kernel info leaks in console during boot
+kernel.scan = 3 3 3 3
+
+# Disables kexec which can be used to replace the running kernel.
+kernel.kexec_load_disabled = 1
+
+# Allows reuse of TIME_WAIT sockets for new outgoing connections, reducing resource exhaustion from DoS attacks
+net.ipv4.tcp_tw_reuse=1
+
+# Limits orphaned TCP sockets to prevent memory exhaustion from unattached sockets
+net.ipv4.tcp_max_orphans=16384
+net.ipv4.tcp_orphan_retries=0
+
+# Prevents caching of TCP metrics, reducing predictability in congestion control
+net.ipv4.tcp_no_metrics_save=1
+
+# Limits ARP table size and enforces frequent cleanup to prevent ARP table exhaustion attacks
+net.ipv4.neigh.default.gc_thresh3=2048
+net.ipv4.neigh.default.gc_thresh2=1024
+net.ipv4.neigh.default.gc_thresh1=32
+net.ipv4.neigh.default.gc_interval=30
+
+# Increase TCP time-wait buckets to prevent simple DoS attacks
+net.ipv4.tcp_max_tw_buckets = 1440000
+
+# Disables the Ctrl-Alt-Delete key combination to prevent unauthorized users from triggering a system reboot.
+kernel.ctrl-alt-del=0
+
+# Disables bootp relay to prevent the system from acting as a BOOTP relay agent.
+net.ipv4.conf.all.bootp_relay=0
+
+# Disables IPv4 forwarding, preventing the system from routing packets between interfaces.
+net.ipv4.conf.all.forwarding=0
+
+# Disables proxy ARP, preventing the system from responding to ARP requests on behalf of other hosts.
+net.ipv4.conf.all.proxy_arp=0
+
+# Limits the number of orphaned TCP sockets to prevent memory exhaustion from unattached sockets.
+net.ipv4.tcp_max_orphans=16384
+
+# Immediately closes orphaned sockets.
+net.ipv4.tcp_orphan_retries=0
+
+# Prevents caching of TCP metrics (e.g., congestion window), reducing predictability in congestion control and mitigating exploitation of cached values in targeted attacks.
+net.ipv4.tcp_no_metrics_save=1
+
+# Enables automatic tuning of TCP receive buffer sizes based on network conditions, indirectly supporting security by maintaining efficient network operation under load, reducing susceptibility to performance-based DoS attacks.
+net.ipv4.tcp_moderate_rcvbuf=1
 ```
