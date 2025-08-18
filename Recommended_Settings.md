@@ -460,7 +460,7 @@ mitigations=auto,nosmt
 # Another way to enable KFENCE (see CONFIG_KFENCE_SAMPLE_INTERVAL).
 kfence.sample_interval=100
 
-# Enforce kernel lockdown to restrict root's access to kernel memory.
+# Kernel features that allow userland to modify the running kernel and to extract confidential information from It are disabled. This disables hibernation.
 lockdown=confidentiality
 
 # Enable Spectre v2 mitigations to protect against speculative execution attacks.
@@ -507,19 +507,19 @@ cfi=kcfi
 # Disable 32-bit emulation to reduce syscall attack surface.
 ia32_emulation=0
 
-# Disable Transactional Synchronization Extensions to mitigate associated vulnerabilities (x86_64-specific).
+# Disable Transactional Synchronization Extensions to mitigate associated vulnerabilities.
 tsx=off
 
-# Enable L1 Data Cache flushing to mitigate L1 Terminal Fault (L1TF) vulnerabilities (x86_64-specific).
+# Enable L1 Data Cache flushing to mitigate L1 Terminal Fault (L1TF) vulnerabilities.
 l1d_flush=on
 
-# Mitigate speculative return stack overflow with safe return handling (x86_64-specific).
+# Mitigate speculative return stack overflow with safe return handling.
 spec_rstack_overflow=safe-ret
 
-# Force Gather Data Sampling (GDS) mitigations to protect against data sampling attacks (x86_64-specific).
+# Force Gather Data Sampling (GDS) mitigations to protect against data sampling attacks.
 gather_data_sampling=force
 
-# Enable Register File Data Sampling (RFDS) mitigations to protect against data sampling attacks (x86_64-specific).
+# Enable Register File Data Sampling (RFDS) mitigations to protect against data sampling attacks.
 reg_file_data_sampling=on
 ```
 # sysctls
